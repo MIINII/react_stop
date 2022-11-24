@@ -14,12 +14,14 @@ const AddUser = (props) => {
     // 유효성 검사
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       // 공백없는 문자열의 경우
-      alert('장난하니?')
+      alert('장난하니?');
       return;
     } else if (+enteredAge < 1) {
       return;
     }
+    // 추가된 정보 출력
     console.log('🚀 ⁝ AddUser', enteredUsername, enteredAge);
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername('');
     setEnteredAge('');
   };
