@@ -4,6 +4,7 @@ import classes from './AddUser.module.css';
 // components
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import ErrorModal from '../UI/ErrorModal';
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = React.useState('');
@@ -35,17 +36,20 @@ const AddUser = (props) => {
 
   // 괄호가 있으면 바로 함수를 실행
   return (
-    <Card className={classes.input}>
-      <form onSubmit={addUserHandler}>
-        <label htmlFor='username'>사용자 이름</label>
-        <input id='username' type='text' value={enteredUsername} onChange={usernameChangeHandler} />
+    <>
+      <ErrorModal title='에러가 발생함요' message='뭔가 잘못되었슈' />
+      <Card className={classes.input}>
+        <form onSubmit={addUserHandler}>
+          <label htmlFor='username'>사용자 이름</label>
+          <input id='username' type='text' value={enteredUsername} onChange={usernameChangeHandler} />
 
-        <label htmlFor='age'>나이</label>
-        <input id='age' type='number' value={enteredAge} onChange={ageChangeHandler} />
+          <label htmlFor='age'>나이</label>
+          <input id='age' type='number' value={enteredAge} onChange={ageChangeHandler} />
 
-        <Button type='submit'>회원등록</Button>
-      </form>
-    </Card>
+          <Button type='submit'>회원등록</Button>
+        </form>
+      </Card>
+    </>
   );
 };
 
