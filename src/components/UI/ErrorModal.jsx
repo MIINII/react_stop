@@ -7,8 +7,9 @@ import Card from './Card';
 import classes from './ErrorModal.module.css';
 
 const ErrorModal = (props) => {
+  // onConfirm : 모달창 끄게 하는거~
   return (
-    <div className={classes.backdrop}>
+    <div className={classes.backdrop} onClick={props.onConfirm}>
       <Card className={classes.modal}>
         <header className={classes.header}>
           <h2>{props.title}</h2>
@@ -19,7 +20,7 @@ const ErrorModal = (props) => {
         </div>
 
         <footer className={classes.actions}>
-          <Button>오키</Button>
+          <Button onClick={props.onConfirm}>오키</Button>
         </footer>
       </Card>
     </div>
