@@ -5,6 +5,7 @@ import classes from './AddUser.module.css';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = React.useState('');
@@ -48,7 +49,7 @@ const AddUser = (props) => {
 
   // 괄호가 있으면 바로 함수를 실행
   return (
-    <>
+    <Wrapper>
       {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
@@ -61,7 +62,7 @@ const AddUser = (props) => {
           <Button type='submit'>회원등록</Button>
         </form>
       </Card>
-    </>
+    </Wrapper>
   );
 };
 
